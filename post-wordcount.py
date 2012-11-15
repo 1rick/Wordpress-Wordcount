@@ -26,5 +26,5 @@ for post in result:
   post_author = post['wp_author_display_name']
   post_date = post['date_created_gmt']
   if post_author == user_to_fetch:
-    print """%d, %s""" % (postwordcount, post_title)
+    print """%d, %s/%s, %s""" % (postwordcount, post_date[4:6], post_date[6:8], post_title)
 
