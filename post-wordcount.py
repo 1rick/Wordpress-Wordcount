@@ -18,7 +18,6 @@ user_to_fetch = ''
 server = xmlrpclib.ServerProxy(url)
 result = server.metaWeblog.getRecentPosts(url, myusername, mypassword, MAX_POSTS)
  
-numPosts = len(result)
 postwordcount = 0
 
 for post in result:
@@ -27,5 +26,5 @@ for post in result:
   post_author = post['wp_author_display_name']
   post_date = post['date_created_gmt']
   if post_author == user_to_fetch:
-    print (postwordcount, post_author, post_title, post_date)
+    print """%d, %s""" % (postwordcount, post_title)
 
