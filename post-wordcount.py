@@ -24,8 +24,6 @@ result = server.metaWeblog.getRecentPosts(url, myusername, mypassword, MAX_POSTS
  
 postwordcount = 0
 
-postwordcount = 0
-
 for post in result:
   description = post['description']
   desc_minus_image = BeautifulSoup(description).get_text()
