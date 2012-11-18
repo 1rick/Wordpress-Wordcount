@@ -23,11 +23,14 @@ result = server.metaWeblog.getRecentPosts(url, myusername, mypassword, MAX_POSTS
  
 postwordcount = 0
 
+postwordcount = 0
+
 for post in result:
-  postwordcount = len(post['description'].split())
+  description = post['description']
+  desc_minus_image = BeautifulSoup(description).get_text()
+  postwordcount = len(desc_minus_image.split())
+  post_date = str(post['date_created_gmt'])
   post_title = post['title']
   post_author = post['wp_author_display_name']
-  post_date = post['date_created_gmt']
   if post_author == user_to_fetch and post_date[4:6] == month:
     print """%d, %s/%s, %s""" % (postwordcount, post_date[4:6], post_date[6:8], post_title)
-
