@@ -5,6 +5,7 @@ as their name is displayed, as opposed to their username."""
 
 
 from __future__ import division
+from bs4 import BeautifulSoup
 import xmlrpclib
  
 MAX_POSTS = 500
